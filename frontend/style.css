@@ -1,0 +1,263 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Roboto', Arial, sans-serif;
+    background-color: #f4f6f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  .container {
+    width: 90%;
+    max-width: 1200px;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 36px;
+    color: #333;
+  }
+
+  button {
+    padding: 12px 24px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+.delete{
+    padding: 12px 24px;
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .edit{
+    padding: 12px 24px;
+    background-color: #e5ff00;
+    color: rgb(100, 100, 100);
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.delete:hover {
+    background-color: #cc0000;
+}
+
+.edit:hover {
+    background-color: #d4e000;
+}
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  th, td {
+    padding: 18px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    font-size: 16px;
+  }
+
+  th {
+    background-color: #007BFF;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  td {
+    background-color: #fff;
+  }
+
+  tr:hover {
+    background-color: #f7f9fb;
+  }
+
+  /* Modal Styles */
+  .modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease-out;
+  }
+
+  .modal-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transform: scale(0.9);
+    animation: scaleUp 0.3s ease-out forwards;
+  }
+
+  .modal-header {
+    font-size: 24px;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+    color: #333;
+  }
+
+  .close-btn:hover {
+    color: #ff0000;
+  }
+
+  .modal input[type="text"],
+  .modal input[type="email"],
+  .modal input[type="number"] {
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  .modal button {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .modal button:hover {
+    background-color: #218838;
+  }
+
+  /* Modal Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes scaleUp {
+    from {
+      transform: scale(0.9);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+
+  /* For smaller screens */
+  @media (max-width: 768px) {
+    .container {
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 28px;
+    }
+
+    table {
+      font-size: 14px;
+      overflow-x: auto; /* Makes table horizontally scrollable */
+      display: block;
+      white-space: nowrap;
+    }
+
+    button {
+      font-size: 14px;
+      padding: 10px 20px;
+    }
+
+    .modal-content {
+      width: 80%;
+      padding: 20px;
+    }
+
+    th, td {
+      padding: 10px;
+      font-size: 14px;
+    }
+
+    .modal-header {
+      font-size: 20px;
+    }
+
+    .close-btn {
+      font-size: 18px;
+    }
+
+    .modal input[type="text"],
+    .modal input[type="email"],
+    .modal input[type="number"] {
+      font-size: 14px;
+    }
+
+    
+  }
+
+  .error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
+
+/* Input field error styles */
+input.error {
+  border: 1px solid red;
+}
