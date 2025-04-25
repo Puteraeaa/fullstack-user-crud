@@ -31,16 +31,16 @@ class UserRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
-    public function rules()
-{
-    $userId = $this->route('userId'); // Ambil ID pengguna dari route
-
-    return [
-        'name' => 'required|string|max:255',
-        'email' => 'required|email|unique:users,email,' . $userId, // Abaikan email pengguna yang sedang diedit
-        'age' => 'required|integer|min:18', // Pastikan umur minimal 18
-    ];
-}    
+    public function rules(): array
+    {
+        $userId = $this->route('user'); // Ambil ID pengguna dari route (pastikan route memiliki parameter 'user')
+    
+        return [
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users,email,' . $userId, // Abaikan email pengguna yang sedang diedit
+            'age' => 'required|integer|min:18', // Pastikan umur minimal 18
+        ];
+    }
 
 
 /**

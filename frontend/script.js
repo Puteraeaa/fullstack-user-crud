@@ -4,6 +4,8 @@ const modal = document.getElementById('user-modal');
 const closeModalBtn = document.getElementById('close-modal-btn');
 const openModalBtn = document.getElementById('open-modal-btn');
 const userIdInput = document.getElementById('user-id');
+const loader = document.getElementById('loader'); // Tambahkan ini
+const submitButton = form.querySelector('button[type="submit"]'); // Tombol submit
 
 // Open modal for adding a user
 openModalBtn.addEventListener('click', () => {
@@ -26,6 +28,8 @@ form.addEventListener('submit', async (e) => {
   const nameInput = document.getElementById('name');
   const emailInput = document.getElementById('email');
   const ageInput = document.getElementById('age');
+  const submitButton = document.getElementById('submit-button');
+  const loader = document.getElementById('loader');
 
   const name = nameInput.value.trim();
   const email = emailInput.value.trim();
@@ -64,6 +68,10 @@ form.addEventListener('submit', async (e) => {
 
   const userId = userIdInput.value;
 
+  // Menampilkan loader dan mengubah teks tombol
+  submitButton.textContent = "Saving...";
+  loader.style.display = 'inline-block';
+
   // Request to backend to add or update user
   try {
     const response = await fetch(userId ? `http://127.0.0.1:8000/api/users/${userId}` : 'http://127.0.0.1:8000/api/users', {
@@ -99,11 +107,20 @@ form.addEventListener('submit', async (e) => {
   } catch (err) {
     console.error(err);
     errorMessage.textContent = 'An error occurred on the server.';
+  } finally {
+    // Menyembunyikan loader dan mengubah teks tombol kembali ke normal
+    submitButton.textContent = "Simpan User";
+    loader.style.display = 'none';
   }
 });
 
-// Load users on page load
-document.addEventListener("DOMContentLoaded", loadUsers);
+
+document.addEventListener("DOMContentLoaded", () => {
+  if (!window.usersLoaded) { // Tambahkan flag untuk memastikan fetch hanya sekali
+    loadUsers();
+    window.usersLoaded = true;
+  }
+});
 
 // Function to load users
 async function loadUsers() {

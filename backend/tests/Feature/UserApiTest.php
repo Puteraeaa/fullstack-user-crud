@@ -64,7 +64,7 @@ class UserApiTest extends TestCase
         $response = $this->putJson("/api/users/{$user->id}", $updateData);
 
         $response->assertStatus(200)
-                 ->assertJsonFragment(['name' => 'Updated Name']);
+                 ->assertJson(['message' => 'User updated successfully']);
 
         $this->assertDatabaseHas('users', $updateData);
     }

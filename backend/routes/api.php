@@ -6,6 +6,6 @@ use Illuminate\Support\Facades\Route;
 Route::middleware(['log.request'])->group(function () {
     // Menambahkan rute apiResource tanpa middleware autentikasi
     Route::apiResource('users', UserController::class);
-    Route::put('/users/{userId}', [UserController::class, 'update']);
+    Route::put('/api/users/{user}', [UserController::class, 'update']);
 });
 
