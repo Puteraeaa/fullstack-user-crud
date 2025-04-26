@@ -6,7 +6,7 @@ This is a user management API built with Laravel. It provides endpoints for perf
 
 1. Clone the repository:
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/Puteraeaa/fullstack-user-crud.git
    cd user-api
    ```
 
