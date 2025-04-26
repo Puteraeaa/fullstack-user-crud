@@ -6,7 +6,7 @@ This is a simple user management frontend application built with HTML, CSS, and 
 
 1. Clone the repository:
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/Puteraeaa/fullstack-user-crud.git
    cd frontend
    ```
 
